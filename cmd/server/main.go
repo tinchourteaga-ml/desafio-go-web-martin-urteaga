@@ -11,7 +11,7 @@ import (
 func main() {
 
 	// Cargo csv.
-	ticketList, err := store.LoadTicketsFromFile("../../tickets.csv")
+	ticketList, err := store.LoadTicketsFromFile("./tickets.csv")
 
 	if err != nil {
 		panic("Couldn't load tickets")
@@ -24,7 +24,7 @@ func main() {
 	router := gin.Default()
 	router.GET("/ping", func(c *gin.Context) { c.String(200, "pong") })
 
-	tickets := router.Group("/ticket")
+	tickets := router.Group("/tickets")
 	{
 		tickets.GET("/getByCountry/:dest", ticket.GetTicketsByCountry())
 		tickets.GET("/getAverage/:dest", ticket.AverageDestination())

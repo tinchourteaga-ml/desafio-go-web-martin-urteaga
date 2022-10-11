@@ -42,5 +42,5 @@ func (s *service) AverageDestination(ctx *gin.Context, destination string) (floa
 		return 0, err
 	}
 
-	return float64(len(dstTickets) / len(allTickets)), nil
+	return float64(len(dstTickets)) / float64(len(allTickets)), nil
 }
